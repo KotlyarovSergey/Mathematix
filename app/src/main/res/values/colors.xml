@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="toolbar_color">#E6EE9C</color>
+    <color name="summation_color">#4EB850</color>
+    <color name="subtraction_color">#F3AF4A</color>
+    <color name="multiplication_color">#F65B55</color>
+    <color name="division_color">#81298F</color>
 </resources>

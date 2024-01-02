@@ -4,15 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B2EBF2"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/btSummation"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/summation_color"
+        android:text="@string/menu_item_summation_title"
+        android:textSize="34sp"
+        app:cornerRadius="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/imageLogo" />
 
+    <Button
+        android:id="@+id/btSubtration"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/subtraction_color"
+        android:text="@string/menu_item_subtraction_title"
+        android:textSize="34sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSummation" />
+
+    <Button
+        android:id="@+id/btMultiplicftion"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/multiplication_color"
+        android:text="@string/menu_item_multiplication_title"
+        android:textSize="34sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btSubtration" />
+
+    <Button
+        android:id="@+id/btDivision"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:backgroundTint="@color/division_color"
+        android:text="@string/menu_item_division_title"
+        android:textSize="34sp"
+        app:cornerRadius="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btMultiplicftion" />
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

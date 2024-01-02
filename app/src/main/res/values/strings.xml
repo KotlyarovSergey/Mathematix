@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">Mathematix</string>
+    <string name="menu_item_summation_title">Сложение</string>
+    <string name="menu_item_subtraction_title">Вычитание</string>
+    <string name="menu_item_multiplication_title">Умножение</string>
+    <string name="menu_item_division_title">Деление</string>
+    <string name="button_generate_title">Создать</string>
+    <string name="img_settings_description">Settings</string>
+
+    <string name="tv_number1_desc_summa">Первое слагаемое</string>
+    <string name="tv_number2_desc_summa">Второе слагаемое</string>
+
+    <string name="tv_number1_desc_subtract">Вычитаемое</string>
+    <string name="tv_number2_desc_subtract">Разница</string>
+
+    <string name="tv_number1_desc_multi">Первый множитель</string>
+    <string name="tv_number2_desc_multi">Второй множитель</string>
+
+    <string name="tv_number1_desc_divide">Делитель</string>
+    <string name="tv_number2_desc_divide">Частное</string>
+
+    <string name="number_range_hint_min">От</string>
+    <string name="number_range_hint_max">До</string>
 </resources>

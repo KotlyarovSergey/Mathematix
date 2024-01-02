@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/itmSummation"
+        android:icon="@drawable/ic_plus_one_24"
+        android:title="@string/menu_item_summation_title"/>
+    <item
+        android:id="@+id/itmSubtraction"
+        android:icon="@drawable/ic_minus"
+        android:title="@string/menu_item_subtraction_title"/>
+    <item
+        android:id="@+id/itmMultiplication"
+        android:icon="@drawable/ic_mult"
+        android:title="@string/menu_item_multiplication_title"/>
+    <item
+        android:id="@+id/itmDivision"
+        android:icon="@drawable/ic_divide"
+        android:title="@string/menu_item_division_title"/>
+
+
+</menu>
