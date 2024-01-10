@@ -1,14 +1,17 @@
 package com.ksv.mathematix
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
 import com.ksv.mathematix.databinding.ActivityExerciseBinding
+import com.ksv.mathematix.model.MathGenerator
 
 class ExerciseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExerciseBinding
     private lateinit var exerciseType: ExerciseType
+    private lateinit var settingsActivityLauncher: ActivityResultLauncher<ExerciseType>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityExerciseBinding.inflate(layoutInflater)
@@ -37,14 +40,33 @@ class ExerciseActivity : AppCompatActivity() {
                 txt = "Деление"
                 binding.root.setBackgroundColor(getColor(R.color.division_color))
             }
-
         }
+
+        settingsActivityLauncher = registerForActivityResult(SettingsActivityActivityContract()) { result ->
+            // используем result
+//            binding.editTextTextMultiLine.setText(result.toString())
+            if(result != null){
+                val resultText= "${result.exerciseType.name}, \n[${result.firstRange.first}..${result.firstRange.last}], [${result.secondRange.first}..${result.secondRange.last}]"
+                binding.editTextTextMultiLine.setText(resultText)
+            }else
+                binding.editTextTextMultiLine.setText("return NULL!!")
+        }
+
+
+
     }
 
     fun onClickSettings(view: View){
-        intent = Intent(this, SettingsActivity::class.java)
-        intent.putExtra(Values.EXERCISE_TYPE, exerciseType.value)
-        startActivity(intent)
+//        intent = Intent(this, SettingsActivity::class.java)
+//        intent.putExtra(Values.EXERCISE_TYPE, exerciseType.value)
+//        startActivity(intent)
+
+        settingsActivityLauncher.launch(exerciseType)
+
+//        intent = Intent(this, SettingsActivity::class.java)
+//        val set = SettingsSet(exerciseType, IntRange(10,20), IntRange(20,30))
+//        intent.putExtra(Values.SETTINGS_RESULT, set)
+//        startActivity(intent)
     }
 
     fun onClickStart(view: View){
@@ -65,3 +87,4 @@ class ExerciseActivity : AppCompatActivity() {
     }
 
 }
+

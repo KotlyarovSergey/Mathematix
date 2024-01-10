@@ -1,8 +1,10 @@
-package com.ksv.mathematix
+package com.ksv.mathematix.model
+
+import com.ksv.mathematix.ExerciseType
 
 class MathGenerator {
 
-    fun summOnce(summand: Int, addend: Int): MathExercise{
+    fun summOnce(summand: Int, addend: Int): MathExercise {
         val amount = summand + addend
         return MathExercise(summand, addend, ExerciseType.SUMMATION, amount)
     }

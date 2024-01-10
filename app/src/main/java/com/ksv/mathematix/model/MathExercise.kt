@@ -1,4 +1,6 @@
-package com.ksv.mathematix
+package com.ksv.mathematix.model
+
+import com.ksv.mathematix.ExerciseType
 
 data class MathExercise(
     val num1: Int,
