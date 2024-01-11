@@ -15,18 +15,21 @@ import com.ksv.mathematix.util.SettingsSet
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
     private lateinit var exerciseType: ExerciseType
+    private lateinit var settingsSet: SettingsSet
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val income = intent.getSerializableExtra(Values.EXERCISE_TYPE) as ExerciseType
+        val income = intent.getSerializableExtra(Values.EXERCISE_TYPE) as SettingsSet
         // Call requires API level 33 (current min is 29)
-        // val income = intent.getSerializableExtra(Values.EXERCISE_TYPE, ExerciseType::class.java)
-        exerciseType = income
+        // val income = intent.getSerializableExtra(Values.EXERCISE_TYPE, SettingsSet::class.java)
+        exerciseType = income.exerciseType
+        settingsSet = income
 
         setTitles()
+        fillFields()
     }
 
     private fun setTitles() {
@@ -60,6 +63,14 @@ class SettingsActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun fillFields(){
+        binding.etNum1Min.setText(settingsSet.firstRange.first.toString())
+        binding.etNum1Max.setText(settingsSet.firstRange.last.toString())
+        binding.etNum2Min.setText(settingsSet.secondRange.first.toString())
+        binding.etNum2Max.setText(settingsSet.secondRange.last.toString())
+    }
+
 
     fun onClickOk(view: View) {
         val checkInputResult = checkInput()
@@ -139,10 +150,7 @@ class SettingsActivity : AppCompatActivity() {
 
     private fun makeIntentAndFinish(set: SettingsSet) {
         intent = Intent()
-        //intent.putExtra(Values.SETTINGS_RESULT, set)
-
-        val s = SettingsSet(exerciseType, RangeOfInt(10, 20), RangeOfInt(40, 50))
-        intent.putExtra(Values.SETTINGS_RESULT, s)
+        intent.putExtra(Values.SETTINGS_RESULT, set)
         setResult(Activity.RESULT_OK, intent)
         finish()
     }
