@@ -7,6 +7,7 @@ import java.io.Serializable
 object Values {
     const val EXERCISE_TYPE = "EXERCISE_TYPE";
     const val SETTINGS_RESULT = "SETTINGS_RESULT"
+
     val DEFAULT_SETTING_SET_SUMMATION = SettingsSet(ExerciseType.SUMMATION, RangeOfInt(50, 99), RangeOfInt(10, 50))
     val DEFAULT_SETTING_SET_SUBTRACTION = SettingsSet(ExerciseType.SUBTRACTION, RangeOfInt(11, 99), RangeOfInt(10, 99))
     val DEFAULT_SETTING_SET_MULTIPLICATION = SettingsSet(ExerciseType.MULTIPLICATION, RangeOfInt(10, 99), RangeOfInt(10, 50))
