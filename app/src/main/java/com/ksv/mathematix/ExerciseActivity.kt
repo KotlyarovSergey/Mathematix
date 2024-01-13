@@ -77,24 +77,32 @@ class ExerciseActivity : AppCompatActivity() {
 //                exerciseType = ExerciseType.SUMMATION
                 binding.root.setBackgroundColor(getColor(R.color.summation_color))
 //                settingSet = Values.DEFAULT_SETTING_SET_SUMMATION
+                binding.tvTitle.text = getString(R.string.menu_item_summation_title)
+                binding.tvTitle.setTextColor(getColor(R.color.summation_color))
             }
 
             ExerciseType.SUBTRACTION -> {
 //                exerciseType = ExerciseType.SUBTRACTION
                 binding.root.setBackgroundColor(getColor(R.color.subtraction_color))
 //                settingSet = Values.DEFAULT_SETTING_SET_SUBTRACTION
+                binding.tvTitle.text = getString(R.string.menu_item_subtraction_title)
+                binding.tvTitle.setTextColor(getColor(R.color.subtraction_color))
             }
 
             ExerciseType.MULTIPLICATION -> {
 //                exerciseType = ExerciseType.MULTIPLICATION
                 binding.root.setBackgroundColor(getColor(R.color.multiplication_color))
 //                settingSet = Values.DEFAULT_SETTING_SET_MULTIPLICATION
+                binding.tvTitle.text = getString(R.string.menu_item_multiplication_title)
+                binding.tvTitle.setTextColor(getColor(R.color.multiplication_color))
             }
 
             ExerciseType.DIVISION -> {
 //                exerciseType = ExerciseType.DIVISION
                 binding.root.setBackgroundColor(getColor(R.color.division_color))
 //                settingSet = Values.DEFAULT_SETTING_SET_DIVISION
+                binding.tvTitle.text = getString(R.string.menu_item_division_title)
+                binding.tvTitle.setTextColor(getColor(R.color.division_color))
             }
         }
     }
