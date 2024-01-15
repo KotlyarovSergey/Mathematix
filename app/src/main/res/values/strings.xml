@@ -21,4 +21,11 @@
 
     <string name="number_range_hint_min">От</string>
     <string name="number_range_hint_max">До</string>
+
+    <string name="tv_equal_text">=</string>
+    <string name="math_sign_plus">+</string>
+    <string name="math_sign_minus">-</string>
+    <string name="math_sign_mult">&#183;</string>
+    <string name="math_sign_divide">:</string>
+
 </resources>

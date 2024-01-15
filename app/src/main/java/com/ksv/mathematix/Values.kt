@@ -13,6 +13,12 @@ object Values {
     val DEFAULT_SETTING_SET_MULTIPLICATION = SettingsSet(ExerciseType.MULTIPLICATION, RangeOfInt(10, 99), RangeOfInt(10, 50))
     val DEFAULT_SETTING_SET_DIVISION = SettingsSet(ExerciseType.DIVISION, RangeOfInt(10, 99), RangeOfInt(2, 50))
 
+    const val SIGN_PLUS = "+"
+    const val SIGN_MINUS = "-"
+    const val SIGN_MULT = "·"
+    const val SIGN_DIVIDE = ":"
+
+    const val exercisesCount = 10
 }
 
 enum class ExerciseType(val value: Int) {

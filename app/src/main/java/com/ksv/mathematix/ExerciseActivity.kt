@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.ksv.mathematix.databinding.ActivityExerciseBinding
-import com.ksv.mathematix.model.MathExercise
 import com.ksv.mathematix.model.MathGenerator
-import com.ksv.mathematix.util.RangeOfInt
+import com.ksv.mathematix.recyclerview.ExerciseAdapter
 import com.ksv.mathematix.util.SettingsKeeper
 import com.ksv.mathematix.util.SettingsSet
 
@@ -16,6 +16,8 @@ class ExerciseActivity : AppCompatActivity() {
     private lateinit var exerciseType: ExerciseType
     private lateinit var settingSet: SettingsSet
     private lateinit var settingsActivityLauncher: ActivityResultLauncher<SettingsSet>
+    private val rcAdapter = ExerciseAdapter()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +37,9 @@ class ExerciseActivity : AppCompatActivity() {
                 }
             }
 
+        binding.rcView.layoutManager = LinearLayoutManager(this)
+        binding.rcView.adapter = rcAdapter
+
     }
 
     fun onClickSettings(view: View) {
@@ -43,32 +48,35 @@ class ExerciseActivity : AppCompatActivity() {
 
     fun onClickStart(view: View) {
         val mathGenerator = MathGenerator()
-        val range1 = IntRange(settingSet.firstRange.first, settingSet.firstRange.last)
-        val range2 = IntRange(settingSet.secondRange.first, settingSet.secondRange.last)
-        val exerciseQuantity = 10
+        val firstRange = IntRange(settingSet.firstRange.first, settingSet.firstRange.last)
+        val secondRange = IntRange(settingSet.secondRange.first, settingSet.secondRange.last)
         val exercises = when (exerciseType) {
-            ExerciseType.SUMMATION -> mathGenerator.summList(range1, range2, exerciseQuantity)
-            ExerciseType.SUBTRACTION -> mathGenerator.subtractionList(
-                range1,
-                range2,
-                exerciseQuantity
-            )
             ExerciseType.MULTIPLICATION -> mathGenerator.multiplicationList(
-                range1,
-                range2,
-                exerciseQuantity
+                firstRange,
+                secondRange,
+                Values.exercisesCount
             )
 
-            else -> mathGenerator.divisionList(range1, range2, exerciseQuantity)
+            ExerciseType.DIVISION -> mathGenerator.divisionList(
+                firstRange,
+                secondRange,
+                Values.exercisesCount
+            )
+
+            ExerciseType.SUMMATION -> mathGenerator.summList(
+                firstRange,
+                secondRange,
+                Values.exercisesCount
+            )
+
+            else -> mathGenerator.subtractionList(firstRange, secondRange, Values.exercisesCount)
         }
 
-        val stringBuilder = StringBuilder()
-
+        rcAdapter.clear()
         for (ex in exercises) {
-            stringBuilder.append(ex.toString())
-            stringBuilder.append("\n");
+            rcAdapter.addExercise(ex)
         }
-        binding.editTextTextMultiLine.setText(stringBuilder.toString())
+
     }
 
     private fun prepareActivity() {
@@ -87,6 +95,7 @@ class ExerciseActivity : AppCompatActivity() {
 //                settingSet = Values.DEFAULT_SETTING_SET_SUBTRACTION
                 binding.tvTitle.text = getString(R.string.menu_item_subtraction_title)
                 binding.tvTitle.setTextColor(getColor(R.color.subtraction_color))
+
             }
 
             ExerciseType.MULTIPLICATION -> {
