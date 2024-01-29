@@ -24,12 +24,16 @@ class ExerciseAdapter: RecyclerView.Adapter<ExerciseHolder>() {
 
     fun addExercise(exercise: MathExercise){
         exerciseList.add(exercise)
-        notifyDataSetChanged()
+        //notifyDataSetChanged()
         //notifyItemChanged(exerciseList.lastIndex)
-        //notifyItemInserted(exerciseList.lastIndex)
+        notifyItemInserted(exerciseList.lastIndex)
     }
     fun clear(){
         exerciseList.clear()
         notifyDataSetChanged()
+    }
+
+    fun verify(){
+        
     }
 }

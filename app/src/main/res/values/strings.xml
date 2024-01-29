@@ -4,7 +4,11 @@
     <string name="menu_item_subtraction_title">Вычитание</string>
     <string name="menu_item_multiplication_title">Умножение</string>
     <string name="menu_item_division_title">Деление</string>
-    <string name="button_generate_title">Создать</string>
+
+    <string name="button_generate_create">Создать</string>
+    <string name="button_generate_verify">Проверить</string>
+
+
     <string name="img_settings_description">Settings</string>
 
     <string name="tv_number1_desc_summa">Первое слагаемое</string>

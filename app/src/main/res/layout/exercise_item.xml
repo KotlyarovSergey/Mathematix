@@ -67,6 +67,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="24sp" />
         </LinearLayout>

@@ -7,4 +7,6 @@
     <color name="subtraction_color">#F3AF4A</color>
     <color name="multiplication_color">#F65B55</color>
     <color name="division_color">#81298F</color>
+
+    <color name="good_answer">#0F9811</color>
 </resources>
